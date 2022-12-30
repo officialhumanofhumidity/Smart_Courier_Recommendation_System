@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Courier Recommendation System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- App favicon -->
+    <!--<link rel="shortcut icon" href="assets/images/favicon.ico">-->
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/favicon.ico')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Layout config Js -->
+    <!--    <script src="assets/js/layout.js"></script>-->
+    <script src="{{ url_for('static',filename='js/layout.js')}}"></script>
+
+    <!-- Bootstrap Css -->
+    <!--    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static',filename='css/fontawesome.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <!-- Icons Css -->
+    <!--    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />-->
+    <link href="{{ url_for('static',filename='css/icons.min.css' )}}" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <!--    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />-->
+    <link href="{{ url_for('static',filename='css/app.min.css' )}}" rel="stylesheet" type="text/css" />
+
+    <!-- custom Css-->
+    <!--    <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />-->
+    <link href="{{ url_for('static',filename='css/custom.min.css' ) }}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div class="layout-wrapper landing">
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0">Courier Service Comparison</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <!-- end col -->
+                    <div class="col-xl-10" align="center">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title mb-0">Price Comparison</h4>
+                            </div>
+                            <!-- end card header -->
+
+                            <div class="card-body">
+                            <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
+                                <script>
+                                 var value1 ={{ value|tojson }};
+                                var xValues = ["Bluedart", "Delhivery", "DTDC", "Kerry price", "Pickrr"];
+                                var yValues = value1;
+                                var barColors = ["red", "green","blue","orange","brown"];
+
+                                new Chart("myChart", {
+                                      type: "bar",
+                                      data: {
+                                      labels: xValues,
+                                      datasets: [{
+                                      backgroundColor: barColors,
+                                      data: yValues
+                                        }]
+                                        },
+                                      options: {
+                                       legend: {display: false},
+                                       title: {
+                                       display: true,
+                                      text: "Price Comparison for your route"
+                                        }
+                                          }
+                                        });
+                                    </script>
+                            </div>
+                            <!-- end card-body -->
+                        </div>
+                        <!-- end card -->
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-xl-10" align="center">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title mb-0">Estimated Dilivery</h4>
+                            </div>
+                            <!-- end card header -->
+
+                            <div class="card-body">
+                            <canvas id="bar-chart-horizontal" style="width:100%;max-width:800px"></canvas>
+                                <script>
+                                    new Chart(document.getElementById("bar-chart-horizontal"), {
+    type: 'horizontalBar',
+    data: {
+      labels: ["Bluedart", "Delhivery", "DTDC", "Kerry price", "Pickrr"],
+      datasets: [
+        {
+          label: "Days",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [5,9,3,4,6]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Estimated dilivery by Service Providers'
+      }
+    }
+});
+                                </script>
+                            </div>
+                            <!-- end card-body -->
+                        </div>
+                        <!-- end card -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+                 <div class="col-xl-10" align="center">
+                     <!-- Add icon library -->
+    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0">Courier Services customer reviews</h4>
+        <br>
+                        </div>
+
+<span class="heading">Bluedart 4.2</span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star"></span><br>  <br>
+
+                     <span class="heading">Delhivery 4.2</span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star"></span><br>  <br>
+                     <span class="heading">DTDC 4</span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star"></span><br>  <br>
+                     <span class="heading">Kerry Price 5</span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star" style="color: orange"></span><br>  <br>
+                     <span class="heading">Pickrr 3</span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" style="color: orange"></span>
+<span class="fa fa-star checked" ></span>
+<span class="fa fa-star"></span><br>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+
+
+    <!-- JAVASCRIPT -->
+     <script src="{{ url_for('static',filename='libs/bootstrap/js/bootstrap.bundle.min.js' )}}"></script>
+    <script src="{{ url_for('static',filename='libs/simplebar/simplebar.min.js' )}}"></script>
+    <script src="{{ url_for('static',filename='libs/node-waves/waves.min.js' )}}"></script>
+    <script src="{{ url_for('static',filename='libs/feather-icons/feather.min.js' )}}"></script>
+    <script src="{{ url_for('static',filename='js/pages/plugins/lord-icon-2.1.0.js' )}}"></script>
+    <script src="{{ url_for('static',filename='js/plugins.js' )}}"></script>
+
+    <!-- apexcharts -->
+<!--    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>-->
+    <script src="{{ url_for('static',filename='libs/apexcharts/apexcharts.min.js' )}}"></script>
+
+    <!-- barcharts init -->
+<!--    <script src="assets/js/pages/apexcharts-bar.init.js"></script>-->
+    <script src="{{ url_for('static',filename='js/pages/apexcharts-bar.init.js' )}}"></script>
+
+    <!-- App js -->
+    <script src="{{ url_for('static',filename='js/app.js' )}}"></script>
+
+</body>
+
+</html>

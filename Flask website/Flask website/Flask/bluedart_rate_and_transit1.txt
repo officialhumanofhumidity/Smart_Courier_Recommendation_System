@@ -1,0 +1,43 @@
+[
+    {
+        "errorFlag": false,
+        "errorMsg": ""
+    },
+    [
+        {
+            "checkStatus": false,
+            "productCode": "D",
+            "price": 450,
+            "link": "/domestic-priority",
+            "transitTime": "2022-12-08",
+            "weight": "0.5",
+            "category": "Document",
+            "priceInDouble": "450.0",
+            "n": 0
+        },
+        {
+            "checkStatus": false,
+            "productCode": "A",
+            "price": 1753,
+            "link": "/dart-apex",
+            "transitTime": "2022-12-08",
+            "weight": "10.0",
+            "category": "Air package",
+            "priceInDouble": "1753.0",
+            "n": 1
+        },
+        {
+            "checkStatus": false,
+            "productCode": "E",
+            "price": 819,
+            "link": "/dart-surfaceline",
+            "transitTime": "2022-12-08",
+            "weight": "10.0",
+            "category": "Ground packages",
+            "priceInDouble": "819.0",
+            "n": 2
+        }
+    ],
+    "MUMBAI",
+    "MUMBAI"
+]
